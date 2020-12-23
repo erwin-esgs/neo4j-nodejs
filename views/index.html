@@ -1,0 +1,21 @@
+<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+<div id="demo"></div>
+
+<script>
+	var t = new NetChart({
+	container: document.getElementById("demo"),
+	area: { height: screen.height*0.85, width:screen.width*0.99 },
+	data: { preloaded: <%-JSON.stringify(data)%> },
+	info:{
+            enabled: true,
+            nodeContentsFunction: function(itemData, item){
+                return "<div style='margin:auto; width:200px; height:100%; padding': 10px;>" +
+                            "<h3 style='font-weight: 300; font-size: 21px; color: #2f256e; padding-bottom: 3px; margin:0px'>"+ itemData.style.label +"</h3>" +
+                       "</div>";
+          },
+            linkContentsFunction: function(itemData, item){
+                return  "<p style='padding-left:5px;padding-right:5px;'>" + " Waktu: " + itemData.value + "</p></div>";
+            }
+        },
+    });
+</script>
